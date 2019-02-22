@@ -1,0 +1,14 @@
+---
+- name: Update repositories cache and upgrade
+  hosts: all
+  become: yes
+  become_method: sudo
+ 
+  tasks:
+  - name: Update repositories cache
+    apt:
+      update_cache: yes
+
+  - name: Update all packages to the latest version
+    apt:
+      upgrade: dist
